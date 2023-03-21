@@ -4,17 +4,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.PageBase;
+import wait.Wait;
 
 public class CustomerLoginPage extends PageBase {
     public CustomerLoginPage(WebDriver driver) {
         super(driver);
     }
 
+    Wait wait;
+
     @FindBy(id = "userSelect")
-    private WebElement userSelect;
+    protected WebElement userSelect;
 
     @FindBy(xpath = "//*[@type='submit']")
-    private WebElement loginButton;
+    protected WebElement loginButton;
+
+    public void waitForLoading() {
+        wait = new Wait(driver);
+        wait.forVisibility(userSelect);
+    }
 
     public void selectExistingUser(String userName) {
         selectOption(userName, userSelect);
@@ -22,5 +30,9 @@ public class CustomerLoginPage extends PageBase {
 
     public void clickOnLoginButton() {
         click(loginButton);
+    }
+
+    public void checkForVisibilityLoginButton() {
+        wait.forVisibility(loginButton);
     }
 }

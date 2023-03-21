@@ -4,12 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import wait.Wait;
 
 public class PageBase {
     public WebDriver driver;
-
-    Wait wait;
 
     public PageBase(WebDriver driver) {
         this.driver = driver;
@@ -17,7 +14,6 @@ public class PageBase {
     }
 
     public void click(WebElement element) {
-        wait.forVisibility(element);
         element.click();
     }
 
