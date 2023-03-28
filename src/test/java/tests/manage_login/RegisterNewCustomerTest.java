@@ -30,6 +30,7 @@ public class RegisterNewCustomerTest extends TestBase {
     public void registerNewCustomerOpenAccountAndCustomerLogin() {
         homePage = new HomePage(app.driver);
         homePage.waitForLoading();
+//        homePage.takeAndCompareScreenshot("homePage", null);
         homePage.clickOnBankManagerLoginButton();
 
         bankManagerLoginPage = new BankManagerLoginPage(app.driver);
