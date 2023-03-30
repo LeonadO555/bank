@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Described pages AddCustomerPage, OpenAccountPage">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" afterDir="false" />
+    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Described method takeAndCompareScreenshot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/BankManagerLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/BankManagerLoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +51,7 @@
   &quot;keyToString&quot;: {
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/leo/IdeaProjects/bank/src/test/java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.ChatGPT&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -94,9 +96,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterNewCustomerTest.registerNewUserWithInvalidData" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="bank.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.manage_login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.manage_login" />
+      <option name="MAIN_CLASS_NAME" value="tests.manage_login.RegisterNewCustomerTest" />
+      <option name="METHOD_NAME" value="registerNewUserWithInvalidData" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" />
+        <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData" />
         <item itemvalue="TestNG.CustomerLoginTest.loginExistingUser" />
       </list>
     </recent_temporary>
@@ -145,7 +166,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679567149406</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Described test registerNewCustomerOpenAccountAndCustomerLogin">
+      <created>1679571543285</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679571543286</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix comment">
+      <created>1679990680877</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679990680877</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Described method takeAndCompareScreenshot">
+      <created>1679999673873</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679999673873</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +207,10 @@
     <MESSAGE value="Added a lot of pages for bank project" />
     <MESSAGE value="Described test loginExistingUser and described pages for that test" />
     <MESSAGE value="Described pages AddCustomerPage, OpenAccountPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Described pages AddCustomerPage, OpenAccountPage" />
+    <MESSAGE value="Described test registerNewCustomerOpenAccountAndCustomerLogin" />
+    <MESSAGE value="Fix comment" />
+    <MESSAGE value="Described method takeAndCompareScreenshot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Described method takeAndCompareScreenshot" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

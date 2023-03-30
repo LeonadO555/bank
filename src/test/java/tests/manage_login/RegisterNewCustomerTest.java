@@ -6,22 +6,26 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.bankManagerLogin.BankManagerLoginPage;
 import pages.bankManagerLogin.addCustomer.AddCustomerPage;
+import pages.bankManagerLogin.customers.CustomersPage;
 import pages.bankManagerLogin.openAccount.OpenAccountPage;
 import pages.customerLogin.CustomerLoginPage;
 import pages.customerLogin.account.AccountPage;
 import tests.TestBase;
+
+import java.io.IOException;
 
 public class RegisterNewCustomerTest extends TestBase {
     HomePage homePage;
     BankManagerLoginPage bankManagerLoginPage;
     AddCustomerPage addCustomerPage;
     OpenAccountPage openAccountPage;
+    CustomersPage customersPage;
     CustomerLoginPage customerLoginPage;
     AccountPage accountPage;
 
     Faker faker = new Faker();
-    String firstName = faker.name().firstName();
-    String lastName = faker.name().lastName();
+    String firstName = faker.internet().uuid();
+    String lastName = faker.internet().uuid();
     String postCode = faker.address().zipCode();
     String firstnameAndLastName = firstName + " " + lastName;
     String currencyValue = "Dollar";
@@ -72,5 +76,52 @@ public class RegisterNewCustomerTest extends TestBase {
 
         accountPage = new AccountPage(app.driver);
         accountPage.waitForLoading();
+
+        homePage.clickOnHomeButton();
+        homePage.waitForLoading();
+        homePage.clickOnBankManagerLoginButton();
+
+        bankManagerLoginPage.waitForLoading();
+        bankManagerLoginPage.openCustomersTab();
+
+        customersPage = new CustomersPage(app.driver);
+        customersPage.waitForLoading();
+        customersPage.fillSearchCustomerInput(firstName);
+        customersPage.checkExistingCustomer(1);
+        customersPage.deleteTableRow(firstName);
+    }
+
+    @Test
+    public void registerNewUserWithInvalidData() throws IOException {
+        String firstName = "invalid name";
+        String lastName = "invalid lastName";
+
+        homePage = new HomePage(app.driver);
+        homePage.waitForLoading();
+        homePage.clickOnBankManagerLoginButton();
+
+        bankManagerLoginPage = new BankManagerLoginPage(app.driver);
+        bankManagerLoginPage.waitForLoading();
+        bankManagerLoginPage.openAddCustomerTab();
+
+        addCustomerPage = new AddCustomerPage(app.driver);
+        addCustomerPage.waitForLoading();
+        addCustomerPage.fillAddCustomerForm(firstName, lastName, "");
+        addCustomerPage.clickOnAddCustomerButton();
+        addCustomerPage.takeAndCompareScreenshot("addCustomerPage", null);
+
+        bankManagerLoginPage.openAccountTab();
+
+        openAccountPage = new OpenAccountPage(app.driver);
+        openAccountPage.waitForLoading();
+        openAccountPage.checkNotExistingCustomer(firstnameAndLastName);
+
+        homePage.clickOnHomeButton();
+        homePage.waitForLoading();
+        homePage.clickOnCustomerLoginButton();
+
+        customerLoginPage = new CustomerLoginPage(app.driver);
+        customerLoginPage.waitForLoading();
+        customerLoginPage.checkNotExistingCustomer(firstnameAndLastName);
     }
 }
