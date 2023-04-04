@@ -20,7 +20,7 @@ public class DepositPage extends PageBase {
         wait.forVisibility(amountField);
     }
 
-    public void fillAmountField(String amount) { // нужно переписать, чтоб Integer принимал
+    public void fillAmountField(String amount) {
         fillField(amountField, amount);
     }
 }
