@@ -21,7 +21,7 @@ public class WithdrawPage extends PageBase {
     @FindBy(xpath = "//input[@placeholder='amount']")
     protected WebElement amountToBeWithdrawnSelector;
 
-    public void setAmountToBeWithdrawnSelector(WebElement element, String number) {
+    public void setAmountToBeWithdrawnSelector(String number) {
         amountToBeWithdrawnSelector.clear();
         amountToBeWithdrawnSelector.sendKeys(number);
     }
