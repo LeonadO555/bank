@@ -28,6 +28,7 @@ public class AccountPage extends PageBase {
     @FindBy(xpath = "//select[@id='accountSelect']")
     protected WebElement accountSelect;
 
+
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(logoutButton);
