@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Described method takeAndCompareScreenshot">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="delete comment">
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +45,13 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -220,7 +225,49 @@
       <option name="project" value="LOCAL" />
       <updated>1679999673873</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Described method takeAndCompareScreenshot">
+      <created>1680601210522</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680601210522</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Described method takeAndCompareScreenshot">
+      <created>1680601487743</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680601487743</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Described DepositPage">
+      <created>1680602291166</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680602291166</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Described DepositPage">
+      <created>1680602348376</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680602348377</updated>
+    </task>
+    <task id="LOCAL-00013" summary="gitignor add .idea">
+      <created>1680603637657</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680603637657</updated>
+    </task>
+    <task id="LOCAL-00014" summary="delete comment">
+      <created>1680604161554</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680604161554</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +290,10 @@
     <MESSAGE value="Described test registerNewCustomerOpenAccountAndCustomerLogin" />
     <MESSAGE value="Fix comment" />
     <MESSAGE value="Described method takeAndCompareScreenshot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Described method takeAndCompareScreenshot" />
+    <MESSAGE value="Described DepositPage" />
+    <MESSAGE value="gitignor add .idea" />
+    <MESSAGE value="delete comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete comment" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
