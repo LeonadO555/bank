@@ -7,22 +7,22 @@ import pages.PageBase;
 import wait.Wait;
 
 public class WithdrawPage extends PageBase {
-
-    Wait wait;
-
     public WithdrawPage(WebDriver driver) {
         super(driver);
     }
 
+    Wait wait;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    protected WebElement depositButtomConfirm;
+
+
     public void waitForLoading() {
         wait = new Wait(driver);
-        wait.forVisibility(withdraw);
+        wait.forVisibility(depositButtomConfirm);
     }
 
-    @FindBy(css = ".btn-default")
-    WebElement withdraw;
-
-    public void clickOnWithdrawButton() {
-        click(withdraw);
+    public void clickOnDepositButtonConfirm() {
+        click(depositButtomConfirm);
     }
 }
