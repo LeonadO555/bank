@@ -12,11 +12,8 @@ public class DepositPage extends PageBase {
     }
 
     Wait wait;
-
-
     @FindBy(xpath = "//input[@placeholder='amount']")
     protected WebElement amountField;
-
 
     public void waitForLoading() {
         wait = new Wait(driver);
@@ -26,5 +23,4 @@ public class DepositPage extends PageBase {
     public void fillAmountField(String amount) { // нужно переписать, чтоб Integer принимал
         fillField(amountField, amount);
     }
-
 }
