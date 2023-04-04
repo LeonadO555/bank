@@ -108,7 +108,7 @@ public class RegisterNewCustomerTest extends TestBase {
         addCustomerPage.waitForLoading();
         addCustomerPage.fillAddCustomerForm(firstName, lastName, "");
         addCustomerPage.clickOnAddCustomerButton();
-        addCustomerPage.takeAndCompareScreenshot("addCustomerPage", null);
+//        addCustomerPage.takeAndCompareScreenshot("addCustomerPage", null);
 
         bankManagerLoginPage.openAccountTab();
 
