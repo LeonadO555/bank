@@ -20,7 +20,6 @@ public class DepositPage extends PageBase {
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(depositButtomConfirm);
-        //wait.forVisibility(amountField);
     }
 
 
