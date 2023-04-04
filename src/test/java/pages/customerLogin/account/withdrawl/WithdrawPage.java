@@ -7,22 +7,22 @@ import pages.PageBase;
 import wait.Wait;
 
 public class WithdrawPage extends PageBase {
-    Wait wait;
-
     public WithdrawPage(WebDriver driver) {
         super(driver);
     }
 
+    Wait wait;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    protected WebElement depositButtomConfirm;
+
+
     public void waitForLoading() {
         wait = new Wait(driver);
-        wait.forVisibility(amountToBeWithdrawnSelector);
+        wait.forVisibility(depositButtomConfirm);
     }
 
-    @FindBy(xpath = "//input[@placeholder='amount']")
-    protected WebElement amountToBeWithdrawnSelector;
-
-    public void setAmountToBeWithdrawnSelector(String number) {
-        amountToBeWithdrawnSelector.clear();
-        amountToBeWithdrawnSelector.sendKeys(number);
+    public void clickOnDepositButtonConfirm() {
+        click(depositButtomConfirm);
     }
 }
