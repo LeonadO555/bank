@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="delete comment">
+    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="xml">
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/dushu/IdeaProjects/bank",
     "settings.editor.selected.configurable": "com.obiscr.chatgpt.settings.ChatGPT"
   }
@@ -267,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680604161554</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="xml">
+      <created>1680605333392</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680605333392</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +301,8 @@
     <MESSAGE value="Described DepositPage" />
     <MESSAGE value="gitignor add .idea" />
     <MESSAGE value="delete comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete comment" />
+    <MESSAGE value="xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
