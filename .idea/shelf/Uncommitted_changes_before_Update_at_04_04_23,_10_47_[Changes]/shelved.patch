@@ -1,0 +1,147 @@
+Index: src/test/java/tests/manage_login/RegisterNewCustomerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests.manage_login;\n\nimport com.github.javafaker.Faker;\nimport org.testng.Assert;\nimport org.testng.annotations.Test;\nimport pages.HomePage;\nimport pages.bankManagerLogin.BankManagerLoginPage;\nimport pages.bankManagerLogin.addCustomer.AddCustomerPage;\nimport pages.bankManagerLogin.customers.CustomersPage;\nimport pages.bankManagerLogin.openAccount.OpenAccountPage;\nimport pages.customerLogin.CustomerLoginPage;\nimport pages.customerLogin.account.AccountPage;\nimport tests.TestBase;\n\nimport java.io.IOException;\n\npublic class RegisterNewCustomerTest extends TestBase {\n    HomePage homePage;\n    BankManagerLoginPage bankManagerLoginPage;\n    AddCustomerPage addCustomerPage;\n    OpenAccountPage openAccountPage;\n    CustomersPage customersPage;\n    CustomerLoginPage customerLoginPage;\n    AccountPage accountPage;\n\n    Faker faker = new Faker();\n    String firstName = faker.internet().uuid();\n    String lastName = faker.internet().uuid();\n    String postCode = faker.address().zipCode();\n    String firstnameAndLastName = firstName + \" \" + lastName;\n    String currencyValue = \"Dollar\";\n\n    @Test\n    public void registerNewCustomerOpenAccountAndCustomerLogin() {\n        homePage = new HomePage(app.driver);\n        homePage.waitForLoading();\n//        homePage.takeAndCompareScreenshot(\"homePage\", null);\n        homePage.clickOnBankManagerLoginButton();\n\n        bankManagerLoginPage = new BankManagerLoginPage(app.driver);\n        bankManagerLoginPage.waitForLoading();\n        bankManagerLoginPage.openAddCustomerTab();\n\n        addCustomerPage = new AddCustomerPage(app.driver);\n        addCustomerPage.waitForLoading();\n        addCustomerPage.fillAddCustomerForm(firstName, lastName, postCode);\n        addCustomerPage.clickOnAddCustomerButton();\n\n        String expectedResult = \"Customer added successfully with customer id :\";\n        String actualResult = addCustomerPage.getAlertText();\n        Assert.assertTrue(actualResult.contains(expectedResult));\n        addCustomerPage.clickAlertOkButton();\n\n        bankManagerLoginPage.openAccountTab();\n\n        openAccountPage = new OpenAccountPage(app.driver);\n        openAccountPage.waitForLoading();\n        openAccountPage.selectExistingUser(firstnameAndLastName);\n        openAccountPage.selectCurrency(currencyValue);\n        openAccountPage.clickOnProcessButton();\n\n        String expectedRes = \"Account created successfully with account Number :\";\n        String actualRes = openAccountPage.getAlertText();\n        Assert.assertTrue(actualRes.contains(expectedRes));\n        openAccountPage.clickAlertOkButton();\n\n        homePage.clickOnHomeButton();\n        homePage.waitForLoading();\n        homePage.clickOnCustomerLoginButton();\n\n        customerLoginPage = new CustomerLoginPage(app.driver);\n        customerLoginPage.waitForLoading();\n        customerLoginPage.selectExistingUser(firstnameAndLastName);\n        customerLoginPage.checkForVisibilityLoginButton();\n        customerLoginPage.clickOnLoginButton();\n\n        accountPage = new AccountPage(app.driver);\n        accountPage.waitForLoading();\n\n        homePage.clickOnHomeButton();\n        homePage.waitForLoading();\n        homePage.clickOnBankManagerLoginButton();\n\n        bankManagerLoginPage.waitForLoading();\n        bankManagerLoginPage.openCustomersTab();\n\n        customersPage = new CustomersPage(app.driver);\n        customersPage.waitForLoading();\n        customersPage.fillSearchCustomerInput(firstName);\n        customersPage.checkExistingCustomer(1);\n        customersPage.deleteTableRow(firstName);\n    }\n\n    @Test\n    public void registerNewUserWithInvalidData() throws IOException {\n        String firstName = \"invalid name\";\n        String lastName = \"invalid lastName\";\n\n        homePage = new HomePage(app.driver);\n        homePage.waitForLoading();\n        homePage.clickOnBankManagerLoginButton();\n\n        bankManagerLoginPage = new BankManagerLoginPage(app.driver);\n        bankManagerLoginPage.waitForLoading();\n        bankManagerLoginPage.openAddCustomerTab();\n\n        addCustomerPage = new AddCustomerPage(app.driver);\n        addCustomerPage.waitForLoading();\n        addCustomerPage.fillAddCustomerForm(firstName, lastName, \"\");\n        addCustomerPage.clickOnAddCustomerButton();\n        addCustomerPage.takeAndCompareScreenshot(\"addCustomerPage\", null);\n\n        bankManagerLoginPage.openAccountTab();\n\n        openAccountPage = new OpenAccountPage(app.driver);\n        openAccountPage.waitForLoading();\n        openAccountPage.checkNotExistingCustomer(firstnameAndLastName);\n\n        homePage.clickOnHomeButton();\n        homePage.waitForLoading();\n        homePage.clickOnCustomerLoginButton();\n\n        customerLoginPage = new CustomerLoginPage(app.driver);\n        customerLoginPage.waitForLoading();\n        customerLoginPage.checkNotExistingCustomer(firstnameAndLastName);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/tests/manage_login/RegisterNewCustomerTest.java b/src/test/java/tests/manage_login/RegisterNewCustomerTest.java
+--- a/src/test/java/tests/manage_login/RegisterNewCustomerTest.java	(revision 94a4941187a5f648fb2eaacc62812cbdbcc2a6e3)
++++ b/src/test/java/tests/manage_login/RegisterNewCustomerTest.java	(date 1680597096807)
+@@ -108,7 +108,7 @@
+         addCustomerPage.waitForLoading();
+         addCustomerPage.fillAddCustomerForm(firstName, lastName, "");
+         addCustomerPage.clickOnAddCustomerButton();
+-        addCustomerPage.takeAndCompareScreenshot("addCustomerPage", null);
++//        addCustomerPage.takeAndCompareScreenshot("addCustomerPage", null);
+ 
+         bankManagerLoginPage.openAccountTab();
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"02334dca-4019-4dbd-bcdd-36845b807107\" name=\"Changes\" comment=\"Described method takeAndCompareScreenshot\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/PageBase.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/PageBase.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ExternalProjectsData\">\n    <projectState path=\"$PROJECT_DIR$\">\n      <ProjectState />\n    </projectState>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"FormatOnSaveOptions\">\n    <option name=\"myRunOnSave\" value=\"true\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"OptimizeOnSaveOptions\">\n    <option name=\"myRunOnSave\" value=\"true\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2N0FCTNdk5nRNDkYiut6qZsYjNU\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/leo/IdeaProjects/bank/src/test/java&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.ChatGPT&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/test/java\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin\">\n    <configuration name=\"CustomerLoginTest.loginExistingUser\" type=\"TestNG\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"bank.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"tests.login.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"tests.login\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"tests.login.CustomerLoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"loginExistingUser\" />\n      <option name=\"TEST_OBJECT\" value=\"METHOD\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin\" type=\"TestNG\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"bank.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"tests.manage_login.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"tests.manage_login\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"tests.manage_login.RegisterNewCustomerTest\" />\n      <option name=\"METHOD_NAME\" value=\"registerNewCustomerOpenAccountAndCustomerLogin\" />\n      <option name=\"TEST_OBJECT\" value=\"METHOD\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"RegisterNewCustomerTest.registerNewUserWithInvalidData\" type=\"TestNG\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"bank.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"tests.manage_login.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"tests.manage_login\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"tests.manage_login.RegisterNewCustomerTest\" />\n      <option name=\"METHOD_NAME\" value=\"registerNewUserWithInvalidData\" />\n      <option name=\"TEST_OBJECT\" value=\"METHOD\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin\" />\n        <item itemvalue=\"TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData\" />\n        <item itemvalue=\"TestNG.CustomerLoginTest.loginExistingUser\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"02334dca-4019-4dbd-bcdd-36845b807107\" name=\"Changes\" comment=\"\" />\n      <created>1678792964917</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1678792964917</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"created new project\">\n      <created>1678793484087</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1678793484087</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"created new project\">\n      <created>1678793685984</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1678793685984</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Added a lot of pages for bank project\">\n      <created>1678967402436</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1678967402436</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Described test loginExistingUser and described pages for that test\">\n      <created>1679398835944</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679398835944</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Described pages AddCustomerPage, OpenAccountPage\">\n      <created>1679567149406</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679567149406</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Described test registerNewCustomerOpenAccountAndCustomerLogin\">\n      <created>1679571543285</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679571543286</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Fix comment\">\n      <created>1679990680877</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679990680877</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Described method takeAndCompareScreenshot\">\n      <created>1679999673873</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1679999673873</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"9\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"create new project\" />\n    <MESSAGE value=\"created new project\" />\n    <MESSAGE value=\"Added a lot of pages for bank project\" />\n    <MESSAGE value=\"Described test loginExistingUser and described pages for that test\" />\n    <MESSAGE value=\"Described pages AddCustomerPage, OpenAccountPage\" />\n    <MESSAGE value=\"Described test registerNewCustomerOpenAccountAndCustomerLogin\" />\n    <MESSAGE value=\"Fix comment\" />\n    <MESSAGE value=\"Described method takeAndCompareScreenshot\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Described method takeAndCompareScreenshot\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 94a4941187a5f648fb2eaacc62812cbdbcc2a6e3)
++++ b/.idea/workspace.xml	(date 1680597749160)
+@@ -5,11 +5,8 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Described method takeAndCompareScreenshot">
++      <change afterPath="$PROJECT_DIR$/reference/tmpaddCustomerPage.png" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -21,6 +18,23 @@
+     <projectState path="$PROJECT_DIR$">
+       <ProjectState />
+     </projectState>
++  </component>
++  <component name="ExternalProjectsManager">
++    <system id="GRADLE">
++      <state>
++        <projects_view>
++          <tree_state>
++            <expand>
++              <path>
++                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
++                <item name="bank" type="f1a62948:ProjectNode" />
++              </path>
++            </expand>
++            <select />
++          </tree_state>
++        </projects_view>
++      </state>
++    </system>
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -42,24 +56,29 @@
+     <option name="myRunOnSave" value="true" />
+   </component>
+   <component name="ProjectId" id="2N0FCTNdk5nRNDkYiut6qZsYjNU" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/leo/IdeaProjects/bank/src/test/java&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.ChatGPT&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "last_opened_file_path": "/Users/leo/IdeaProjects/bank/src/test/java",
++    "settings.editor.selected.configurable": "com.obiscr.chatgpt.settings.ChatGPT"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/src/test/java" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin">
++  <component name="RunManager" selected="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData">
+     <configuration name="CustomerLoginTest.loginExistingUser" type="TestNG" temporary="true" nameIsGenerated="true">
+       <module name="bank.test" />
+       <extension name="coverage">
+@@ -78,6 +97,23 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="RegisterNewCustomerTest" type="TestNG" temporary="true" nameIsGenerated="true">
++      <module name="bank.test" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="tests.manage_login.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="tests.manage_login" />
++      <option name="MAIN_CLASS_NAME" value="tests.manage_login.RegisterNewCustomerTest" />
++      <option name="TEST_OBJECT" value="CLASS" />
++      <properties />
++      <listeners />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+       <module name="bank.test" />
+       <extension name="coverage">
+@@ -116,8 +152,9 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" />
+         <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData" />
++        <item itemvalue="TestNG.RegisterNewCustomerTest" />
++        <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" />
+         <item itemvalue="TestNG.CustomerLoginTest.loginExistingUser" />
+       </list>
+     </recent_temporary>
+@@ -202,6 +239,7 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="create new project" />
+     <MESSAGE value="created new project" />
+     <MESSAGE value="Added a lot of pages for bank project" />
