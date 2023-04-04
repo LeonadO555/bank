@@ -13,16 +13,26 @@ public class DepositPage extends PageBase {
 
     Wait wait;
 
+    @FindBy(xpath = "//*[@type='submit']")
+    protected WebElement depositButtomConfirm;
+
     @FindBy(xpath = "//input[@placeholder='amount']")
     protected WebElement amountField;
 
+
     public void waitForLoading() {
         wait = new Wait(driver);
+        wait.forVisibility(depositButtomConfirm);
         wait.forVisibility(amountField);
     }
 
     public void fillAmountField(String amount) {
         fillField(amountField, amount);
+    }
+
+
+    public void clickOnDepositButtonConfirm() {
+        click(depositButtomConfirm);
     }
 
 }

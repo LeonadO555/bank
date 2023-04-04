@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="xml">
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" afterDir="false" />
+    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="gitignore - idea">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +47,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="account" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,27 +59,29 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="2N0FCTNdk5nRNDkYiut6qZsYjNU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/dushu/IdeaProjects/bank",
-    "settings.editor.selected.configurable": "com.obiscr.chatgpt.settings.ChatGPT"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/leo/IdeaProjects/bank/src/test/java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.ChatGPT&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RegisterNewCustomerTest">
+  <component name="RunManager" selected="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData">
     <configuration name="CustomerLoginTest.loginExistingUser" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bank.test" />
       <extension name="coverage">
@@ -154,9 +155,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData" />
         <item itemvalue="TestNG.RegisterNewCustomerTest" />
         <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" />
-        <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData" />
         <item itemvalue="TestNG.CustomerLoginTest.loginExistingUser" />
       </list>
     </recent_temporary>
@@ -226,56 +227,70 @@
       <option name="project" value="LOCAL" />
       <updated>1679999673873</updated>
     </task>
-    <task id="LOCAL-00009" summary="Described method takeAndCompareScreenshot">
-      <created>1680601210522</created>
+    <task id="LOCAL-00009" summary="added AccountPage methode">
+      <created>1680600401863</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1680601210522</updated>
+      <updated>1680600401863</updated>
     </task>
-    <task id="LOCAL-00010" summary="Described method takeAndCompareScreenshot">
-      <created>1680601487743</created>
+    <task id="LOCAL-00010" summary="added AccountPage methode">
+      <created>1680600717560</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1680601487743</updated>
+      <updated>1680600717560</updated>
     </task>
-    <task id="LOCAL-00011" summary="Described DepositPage">
-      <created>1680602291166</created>
+    <task id="LOCAL-00011" summary="added AccountPage methode">
+      <created>1680600805264</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1680602291166</updated>
+      <updated>1680600805264</updated>
     </task>
-    <task id="LOCAL-00012" summary="Described DepositPage">
-      <created>1680602348376</created>
+    <task id="LOCAL-00012" summary="added AccountPage methode">
+      <created>1680600894672</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1680602348377</updated>
+      <updated>1680600894672</updated>
     </task>
-    <task id="LOCAL-00013" summary="gitignor add .idea">
-      <created>1680603637657</created>
+    <task id="LOCAL-00013" summary="added AccountPage methode">
+      <created>1680600938554</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1680603637657</updated>
+      <updated>1680600938554</updated>
     </task>
-    <task id="LOCAL-00014" summary="delete comment">
-      <created>1680604161554</created>
+    <task id="LOCAL-00014" summary="added AccountPage methode">
+      <created>1680601083948</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1680604161554</updated>
+      <updated>1680601083948</updated>
     </task>
-    <task id="LOCAL-00015" summary="xml">
-      <created>1680605333392</created>
+    <task id="LOCAL-00015" summary="added AccountPage methode">
+      <created>1680601223971</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1680605333392</updated>
+      <updated>1680601223971</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added AccountPage methode">
+      <created>1680601265294</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680601265294</updated>
+    </task>
+    <task id="LOCAL-00017" summary="gitignore - idea">
+      <created>1680603564103</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680603564103</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,6 +305,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="create new project" />
     <MESSAGE value="created new project" />
     <MESSAGE value="Added a lot of pages for bank project" />
@@ -298,11 +314,9 @@
     <MESSAGE value="Described test registerNewCustomerOpenAccountAndCustomerLogin" />
     <MESSAGE value="Fix comment" />
     <MESSAGE value="Described method takeAndCompareScreenshot" />
-    <MESSAGE value="Described DepositPage" />
-    <MESSAGE value="gitignor add .idea" />
-    <MESSAGE value="delete comment" />
-    <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="added AccountPage methode" />
+    <MESSAGE value="gitignore - idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore - idea" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
