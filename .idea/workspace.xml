@@ -7,10 +7,6 @@
     <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Described method takeAndCompareScreenshot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PageBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/customers/CustomersPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/bankManagerLogin/openAccount/OpenAccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/CustomerLoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/manage_login/RegisterNewCustomerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +17,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bank" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,19 +60,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/leo/IdeaProjects/bank/src/test/java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.ChatGPT&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/dushu/IdeaProjects/bank",
+    "settings.editor.selected.configurable": "com.obiscr.chatgpt.settings.ChatGPT"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin">
+  <component name="RunManager" selected="TestNG.RegisterNewCustomerTest">
     <configuration name="CustomerLoginTest.loginExistingUser" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bank.test" />
       <extension name="coverage">
@@ -72,6 +87,23 @@
       <option name="MAIN_CLASS_NAME" value="tests.login.CustomerLoginTest" />
       <option name="METHOD_NAME" value="loginExistingUser" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterNewCustomerTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="bank.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.manage_login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.manage_login" />
+      <option name="MAIN_CLASS_NAME" value="tests.manage_login.RegisterNewCustomerTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -116,6 +148,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.RegisterNewCustomerTest" />
         <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" />
         <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData" />
         <item itemvalue="TestNG.CustomerLoginTest.loginExistingUser" />
