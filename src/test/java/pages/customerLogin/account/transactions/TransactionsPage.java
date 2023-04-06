@@ -28,6 +28,12 @@ public class TransactionsPage extends PageBase {
     @FindBy(xpath = "(//button[normalize-space()='Reset'])[1]")
     protected WebElement resetButton;
 
+    @FindBy(xpath = "//td[normalize-space()='Credit']")
+    protected WebElement transactionTypeCredit;
+
+    @FindBy(xpath = "//tbody//td[2]")
+    protected WebElement amountTransactionPage;
+
    /* @FindBy(xpath = "//*[@ng-click='home()']")
     protected WebElement homeButton;
 
@@ -68,6 +74,14 @@ public class TransactionsPage extends PageBase {
 
     public void clickOnBackButton() {
         click(backButton);
+    }
+
+    public void checkTransactionType(String expectedResult) {
+        checkItemText(transactionTypeCredit, expectedResult, "Error");
+    }
+
+    public void checkAmount(String expectedResult) {
+        checkItemText(amountTransactionPage, expectedResult, "Error");
     }
 }
 

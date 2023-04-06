@@ -20,6 +20,10 @@ public class DepositPage extends PageBase {
     protected WebElement amountField;
 
 
+    @FindBy(xpath = "//span[@class='error ng-binding']")
+    protected WebElement depositSuccessful;
+
+
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(depositButtomConfirm);
@@ -33,6 +37,10 @@ public class DepositPage extends PageBase {
 
     public void clickOnDepositButtonConfirm() {
         click(depositButtomConfirm);
+    }
+
+    public void checkForVisibilityDepositSuccessful() {
+        wait.forVisibility(depositSuccessful);
     }
 
 }

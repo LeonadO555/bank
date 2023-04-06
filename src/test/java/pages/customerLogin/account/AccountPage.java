@@ -29,6 +29,9 @@ public class AccountPage extends PageBase {
     @FindBy(xpath = "//select[@id='accountSelect']")
     protected WebElement accountSelect;
 
+    @FindBy(xpath = "//body//div[@class='ng-scope']//div[@class='ng-scope']//div[2]")
+    protected WebElement accountNumberBalanceCurrencyCheck;
+
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(logoutButton);
@@ -57,5 +60,9 @@ public class AccountPage extends PageBase {
 
     public void selectCurrencyAccount(String accountId) {
         selectOption(accountId, accountSelect);
+    }
+
+    public void checkAccountNumberBalanceCurrencyText(String expectedResult) {
+        checkItemText(accountNumberBalanceCurrencyCheck, expectedResult, "Error");
     }
 }
