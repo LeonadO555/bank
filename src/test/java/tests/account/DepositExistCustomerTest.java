@@ -8,28 +8,23 @@ import pages.customerLogin.account.deposit.DepositPage;
 import pages.customerLogin.account.transactions.TransactionsPage;
 import tests.TestBase;
 
-public class DepositExistCustomerTest extends TestBase {
+import java.util.Random;
 
+public class DepositExistCustomerTest extends TestBase {
+    Random random = new Random();
     HomePage homePage;
     CustomerLoginPage customerLoginPage;
     AccountPage accountPage;
     DepositPage depositPage;
     TransactionsPage transactionsPage;
-
-
     String userName = "Albus Dumbledore";
-    String currencyAccountDollar = "1010";
-    //String currencyAccountPound = "1011";
-    //String currencyAccountRupee = "1012";
-    String amount = "50";
-    String expectedResultDefault = "Account Number : 1010 , Balance : 0 , Currency : Dollar";
-    String expectedResultAfterDeposit = "Account Number : 1010 , Balance : 50 , Currency : Dollar";
-
-    String transactionType = "Credit";
-
+    String[] accountsArray = {"1010", "1011", "1012"};
+    Integer amountRandom = random.nextInt(1, 100000000);
+    String amountRandomString = amountRandom.toString();
+    String typeOfAccount;
 
     @Test
-    public void DepositExistCustomerWithValidDataTest() {
+    public void DepositExistCustomerWithValidDataTest() throws InterruptedException {
         homePage = new HomePage(app.driver);
         homePage.waitForLoading();
         homePage.clickOnCustomerLoginButton();
@@ -42,30 +37,38 @@ public class DepositExistCustomerTest extends TestBase {
 
         accountPage = new AccountPage(app.driver);
         accountPage.waitForLoading();
-        accountPage.selectCurrencyAccount("1010");
-        accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
-        accountPage.clickDepositButton();
 
-        depositPage = new DepositPage(app.driver);
-        depositPage.waitForLoading();
-        depositPage.fillAmountField(amount);
-        depositPage.clickOnDepositButtonConfirm();
-        depositPage.checkForVisibilityDepositSuccessful();
+        for (String account : accountsArray) {
 
-        accountPage.checkAccountNumberBalanceCurrencyText(expectedResultAfterDeposit);
-        accountPage.clickTransactionsButton();
+            if (account == "1010") {
+                typeOfAccount = "Dollar";
+            } else if (account == "1011") {
+                typeOfAccount = "Pound";
+            } else typeOfAccount = "Rupee";
+            accountPage.selectCurrencyAccount(account);
+            accountPage.clickDepositButton();
+            String expectedResultDefault = "Account Number : " + account + " , Balance : 0" + " , Currency : " + typeOfAccount;
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
 
+            depositPage = new DepositPage(app.driver);
+            depositPage.waitForLoading();
+            depositPage.fillAmountField(amountRandomString);
+            depositPage.clickOnDepositButtonConfirm();
+            depositPage.checkForVisibilityDepositSuccessful();
 
-        transactionsPage = new TransactionsPage(app.driver);
-        transactionsPage.waitForLoading();
-        transactionsPage.checkTransactionType(transactionType);
-        transactionsPage.checkAmount(amount);
-        transactionsPage.clickOnResetButton();
-        transactionsPage.clickOnBackButton();
+            String expectedResult = "Account Number : " + account + " , Balance : " + amountRandom + " , Currency : " + typeOfAccount;
 
-        accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResult);
+            accountPage.clickTransactionsButton();
 
+            transactionsPage = new TransactionsPage(app.driver);
+            transactionsPage.waitForLoading();
+            transactionsPage.clickOnResetButton();
+            transactionsPage.clickOnBackButton();
 
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
+
+        }
     }
 
 }
