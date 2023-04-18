@@ -53,15 +53,5 @@ public class MakeWithdrawTest extends TestBase {
 
         withdrawPage.checkTransactionSuccessfulMessage();
 
-        /*
-        accountPage.clickTransactionsButton();
-
-        transactionsPage = new TransactionsPage(app.driver);
-        transactionsPage.waitForLoading();
-        transactionsPage.
-
-
-         */
-
     }
 }
