@@ -40,9 +40,9 @@ public class DepositExistCustomerTest extends TestBase {
 
         for (String account : accountsArray) {
 
-            if (account == "1010") {
+            if (account == accountsArray[0]) {
                 typeOfAccount = "Dollar";
-            } else if (account == "1011") {
+            } else if (account == accountsArray[1]) {
                 typeOfAccount = "Pound";
             } else typeOfAccount = "Rupee";
             accountPage.selectCurrencyAccount(account);
