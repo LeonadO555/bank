@@ -37,4 +37,14 @@ public class Wait {
             e.printStackTrace();
         }
     }
+
+    public void forClickable(WebElement element) {
+        try {
+            setWait().until(ExpectedConditions.elementToBeClickable(element));
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
