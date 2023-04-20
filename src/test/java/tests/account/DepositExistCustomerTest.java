@@ -8,6 +8,8 @@ import pages.customerLogin.account.deposit.DepositPage;
 import pages.customerLogin.account.transactions.TransactionsPage;
 import tests.TestBase;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class DepositExistCustomerTest extends TestBase {
@@ -18,13 +20,14 @@ public class DepositExistCustomerTest extends TestBase {
     DepositPage depositPage;
     TransactionsPage transactionsPage;
     String userName = "Albus Dumbledore";
-    String[] accountsArray = {"1010", "1011", "1012"};
-    Integer amountRandom = random.nextInt(1, 100000000);
+    Integer amountRandom = random.nextInt(1, 500000);
+    Integer amountRandom2 = random.nextInt(500001, 1000000);
     String amountRandomString = amountRandom.toString();
-    String typeOfAccount;
+    String amountRandom2String = amountRandom2.toString();
+    Integer amountRandomSum = amountRandom + amountRandom2;
 
     @Test
-    public void DepositExistCustomerWithValidDataTest() throws InterruptedException {
+    public void DepositExistCustomerWithValidDataTest() {
         homePage = new HomePage(app.driver);
         homePage.waitForLoading();
         homePage.clickOnCustomerLoginButton();
@@ -38,16 +41,18 @@ public class DepositExistCustomerTest extends TestBase {
         accountPage = new AccountPage(app.driver);
         accountPage.waitForLoading();
 
-        for (String account : accountsArray) {
+        LinkedHashMap<String, String> accountsAndCurrency = new LinkedHashMap<>();
+        accountsAndCurrency.put("1010", "Dollar");
+        accountsAndCurrency.put("1011", "Pound");
+        accountsAndCurrency.put("1012", "Rupee");
 
-            if (account == accountsArray[0]) {
-                typeOfAccount = "Dollar";
-            } else if (account == accountsArray[1]) {
-                typeOfAccount = "Pound";
-            } else typeOfAccount = "Rupee";
+        for (Map.Entry<String, String> pair : accountsAndCurrency.entrySet()) {
+            String account = pair.getKey();
+            String currency = pair.getValue();
+
             accountPage.selectCurrencyAccount(account);
             accountPage.clickDepositButton();
-            String expectedResultDefault = "Account Number : " + account + " , Balance : 0" + " , Currency : " + typeOfAccount;
+            String expectedResultDefault = "Account Number : " + account + " , Balance : 0" + " , Currency : " + currency;
             accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
 
             depositPage = new DepositPage(app.driver);
@@ -56,9 +61,17 @@ public class DepositExistCustomerTest extends TestBase {
             depositPage.clickOnDepositButtonConfirm();
             depositPage.checkForVisibilityDepositSuccessful();
 
-            String expectedResult = "Account Number : " + account + " , Balance : " + amountRandom + " , Currency : " + typeOfAccount;
+            String expectedResult = "Account Number : " + account + " , Balance : " + amountRandom + " , Currency : " + currency;
 
             accountPage.checkAccountNumberBalanceCurrencyText(expectedResult);
+
+            depositPage.fillAmountField(amountRandom2String);
+            depositPage.clickOnDepositButtonConfirm();
+            depositPage.checkForVisibilityDepositSuccessful();
+
+            String expectedResultSum = "Account Number : " + account + " , Balance : " + amountRandomSum + " , Currency : " + currency;
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultSum);
+
             accountPage.clickTransactionsButton();
 
             transactionsPage = new TransactionsPage(app.driver);
@@ -67,7 +80,6 @@ public class DepositExistCustomerTest extends TestBase {
             transactionsPage.clickOnBackButton();
 
             accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
-
         }
     }
 
