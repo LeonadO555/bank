@@ -26,6 +26,7 @@ public class HomePage extends PageBase {
         wait.forVisibility(homeButton);
         wait.forVisibility(customerLoginButton);
         wait.forVisibility(bankManagerLoginButton);
+        wait.forClickable(customerLoginButton);
     }
 
     public void clickOnHomeButton() {
@@ -39,4 +40,6 @@ public class HomePage extends PageBase {
     public void clickOnBankManagerLoginButton() {
         click(bankManagerLoginButton);
     }
+
+
 }

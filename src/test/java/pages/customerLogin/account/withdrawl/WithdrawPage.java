@@ -21,8 +21,23 @@ public class WithdrawPage extends PageBase {
     @FindBy(xpath = "//input[@placeholder='amount']")
     protected WebElement amountToBeWithdrawnSelector;
 
+    @FindBy(xpath = "//*[@type=\"submit\"]")
+    protected WebElement withdrawButton;
+
+    @FindBy(xpath = "//*[@ng-show=\"message\"]")
+    protected WebElement transactionText;
+
+
     public void setAmountToBeWithdrawnSelector(String number) {
         amountToBeWithdrawnSelector.clear();
         amountToBeWithdrawnSelector.sendKeys(number);
+    }
+
+    public void clickOnWithdrawButton() {
+        withdrawButton.click();
+    }
+
+    public void checkTransactionSuccessfulMessage() {
+        checkItemText(transactionText, "Transaction successful", "message is not equal");
     }
 }

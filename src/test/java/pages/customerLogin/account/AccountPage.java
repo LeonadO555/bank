@@ -39,6 +39,9 @@ public class AccountPage extends PageBase {
         wait.forVisibility(depositButton);
         wait.forVisibility(withdrawButton);
         wait.forVisibility(accountSelect);
+        wait.forClickable(depositButton);
+        wait.forClickable(transactionsButton);
+        wait.forClickable(withdrawButton);
     }
 
 
