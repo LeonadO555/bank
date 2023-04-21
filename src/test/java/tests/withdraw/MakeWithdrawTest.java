@@ -9,18 +9,35 @@ import pages.customerLogin.account.transactions.TransactionsPage;
 import pages.customerLogin.account.withdrawl.WithdrawPage;
 import tests.TestBase;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Random;
+
 public class MakeWithdrawTest extends TestBase {
     HomePage homePage;
     CustomerLoginPage customerLoginPage;
     AccountPage accountPage;
     DepositPage depositPage;
+
     TransactionsPage transactionsPage;
     WithdrawPage withdrawPage;
 
     String customerName = "Ron Weasly";
-    String accountNumber = "1007";
-    String depositSum = "10000";
-    String withdrawSum = "200";
+    Random random = new Random();
+    Integer amountDepositRandom = random.nextInt(10000, 1000000);
+    Integer amountWithdrawRandom = random.nextInt(1, 50000);
+
+    Integer amountWithdrawRandom2 = random.nextInt(1, 30000);
+    String amountDepositRandomString = amountDepositRandom.toString();
+
+    String amountWithdrawRandomString = amountWithdrawRandom.toString();
+
+    String amountWithdrawRandom2String = amountWithdrawRandom2.toString();
+
+    Integer amountRandomResSum = amountDepositRandom - amountWithdrawRandom;
+
+    Integer amountRandomResSum2 = amountRandomResSum - amountWithdrawRandom2;
+
 
     @Test
     public void verifyWithdrawFunctional() {
@@ -36,22 +53,56 @@ public class MakeWithdrawTest extends TestBase {
 
         accountPage = new AccountPage(app.driver);
         accountPage.waitForLoading();
-        accountPage.selectCurrencyAccount(accountNumber);
-        accountPage.clickDepositButton();
 
-        depositPage = new DepositPage(app.driver);
-        depositPage.waitForLoading();
-        depositPage.fillAmountField(depositSum);
-        depositPage.clickOnDepositButtonConfirm();
+        LinkedHashMap<String, String> accountsAndCurrency = new LinkedHashMap<>();
+        accountsAndCurrency.put("1007", "Dollar");
+        accountsAndCurrency.put("1008", "Pound");
+        accountsAndCurrency.put("1009", "Rupee");
 
-        accountPage.clickWithdrawButton();
+        for (Map.Entry<String, String> pair : accountsAndCurrency.entrySet()) {
+            String account = pair.getKey();
+            String currency = pair.getValue();
 
-        withdrawPage = new WithdrawPage(app.driver);
-        withdrawPage.waitForLoading();
-        withdrawPage.setAmountToBeWithdrawnSelector(withdrawSum);
-        withdrawPage.clickOnWithdrawButton();
+            accountPage.selectCurrencyAccount(account);
+            accountPage.clickDepositButton();
+            String expectedResultDefault = "Account Number : " + account + " , Balance : 0" + " , Currency : " + currency;
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
 
-        withdrawPage.checkTransactionSuccessfulMessage();
+            depositPage = new DepositPage(app.driver);
+            depositPage.waitForLoading();
+            depositPage.fillAmountField(amountDepositRandomString);
+            depositPage.clickOnDepositButtonConfirm();
+            depositPage.checkForVisibilityDepositSuccessful();
+
+            String expectedResult = "Account Number : " + account + " , Balance : " + amountDepositRandom + " , Currency : " + currency;
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResult);
+
+            accountPage.clickWithdrawButton();
+            withdrawPage = new WithdrawPage(app.driver);
+            withdrawPage.fillAmountWithdrawField(amountWithdrawRandomString);
+            withdrawPage.clickOnWithdrawButton();
+            withdrawPage.checkTransactionSuccessfulMessage();
+
+            String expectedResultAfterWithdraw = "Account Number : " + account + " , Balance : " + amountRandomResSum + " , Currency : " + currency;
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultAfterWithdraw);
+
+            withdrawPage.fillAmountWithdrawField(amountWithdrawRandom2String);
+            withdrawPage.clickOnWithdrawButton();
+            withdrawPage.checkTransactionSuccessfulMessage();
+
+            String expectedResultAfterWithdraw2 = "Account Number : " + account + " , Balance : " + amountRandomResSum2 + " , Currency : " + currency;
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultAfterWithdraw2);
+
+            accountPage.clickTransactionsButton();
+
+            transactionsPage = new TransactionsPage(app.driver);
+            transactionsPage.waitForLoading();
+            transactionsPage.clickOnResetButton();
+            transactionsPage.clickOnBackButton();
+
+            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
+
+        }
 
     }
 }

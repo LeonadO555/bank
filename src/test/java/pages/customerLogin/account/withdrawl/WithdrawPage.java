@@ -15,11 +15,11 @@ public class WithdrawPage extends PageBase {
 
     public void waitForLoading() {
         wait = new Wait(driver);
-        wait.forVisibility(amountToBeWithdrawnSelector);
+        wait.forVisibility(amountToBeWithdrawField);
     }
 
     @FindBy(xpath = "//input[@placeholder='amount']")
-    protected WebElement amountToBeWithdrawnSelector;
+    protected WebElement amountToBeWithdrawField;
 
     @FindBy(xpath = "//*[@type=\"submit\"]")
     protected WebElement withdrawButton;
@@ -27,10 +27,12 @@ public class WithdrawPage extends PageBase {
     @FindBy(xpath = "//*[@ng-show=\"message\"]")
     protected WebElement transactionText;
 
+    @FindBy(css = "//*[class=\"ng-binding\"]")
+    protected WebElement balanceString;
 
-    public void setAmountToBeWithdrawnSelector(String number) {
-        amountToBeWithdrawnSelector.clear();
-        amountToBeWithdrawnSelector.sendKeys(number);
+
+    public void fillAmountWithdrawField(String amount) {
+        fillField(amountToBeWithdrawField, amount);
     }
 
     public void clickOnWithdrawButton() {
@@ -40,4 +42,6 @@ public class WithdrawPage extends PageBase {
     public void checkTransactionSuccessfulMessage() {
         checkItemText(transactionText, "Transaction successful", "message is not equal");
     }
+
+
 }
