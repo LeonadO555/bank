@@ -1,5 +1,6 @@
 package tests.withdraw;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.customerLogin.CustomerLoginPage;
@@ -37,6 +38,8 @@ public class MakeWithdrawTest extends TestBase {
     Integer amountRandomResSum = amountDepositRandom - amountWithdrawRandom;
 
     Integer amountRandomResSum2 = amountRandomResSum - amountWithdrawRandom2;
+
+    String amountRandomResSum2String = amountRandomResSum2.toString();
 
 
     @Test
@@ -97,10 +100,13 @@ public class MakeWithdrawTest extends TestBase {
 
             transactionsPage = new TransactionsPage(app.driver);
             transactionsPage.waitForLoading();
-            transactionsPage.clickOnResetButton();
-            transactionsPage.clickOnBackButton();
 
-            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
+            Assert.assertEquals(amountRandomResSum2String, transactionsPage.getAmount());
+
+            //transactionsPage.clickOnResetButton();
+            //transactionsPage.clickOnBackButton();
+
+            //accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
 
         }
 

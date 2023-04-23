@@ -34,6 +34,10 @@ public class TransactionsPage extends PageBase {
     @FindBy(xpath = "//tbody//td[2]")
     protected WebElement amountTransactionPage;
 
+    @FindBy(css = "tr[id='anchor0'] td:nth-child(2)")
+    protected WebElement tableAmountRow;
+
+
    /* @FindBy(xpath = "//*[@ng-click='home()']")
     protected WebElement homeButton;
 
@@ -55,6 +59,10 @@ public class TransactionsPage extends PageBase {
         dateBox.sendKeys(Keys.TAB);
         //click();
     }*/
+
+    public String getAmount() {
+        return tableAmountRow.getText();
+    }
 
     public void clickOnColumnNameDataTime() {
         click(columnNameDataTime);
