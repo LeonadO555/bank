@@ -52,25 +52,26 @@ public class DepositExistCustomerTest extends TestBase {
 
             accountPage.selectCurrencyAccount(account);
             accountPage.clickDepositButton();
-            String expectedResultDefault = "Account Number : " + account + " , Balance : 0" + " , Currency : " + currency;
-            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
 
+            Integer balance = Integer.parseInt(accountPage.getBalance());
+            Integer balanceAndAmount = amountRandom + balance;
+            String balanceAndAmountString = balanceAndAmount.toString();
+            accountPage.checkAccountNumberBalanceCurrencyText(account, balance.toString(), currency);
             depositPage = new DepositPage(app.driver);
             depositPage.waitForLoading();
             depositPage.fillAmountField(amountRandomString);
             depositPage.clickOnDepositButtonConfirm();
             depositPage.checkForVisibilityDepositSuccessful();
 
-            String expectedResult = "Account Number : " + account + " , Balance : " + amountRandom + " , Currency : " + currency;
-
-            accountPage.checkAccountNumberBalanceCurrencyText(expectedResult);
+            accountPage.checkAccountNumberBalanceCurrencyText(account, balanceAndAmountString, currency);
 
             depositPage.fillAmountField(amountRandom2String);
             depositPage.clickOnDepositButtonConfirm();
             depositPage.checkForVisibilityDepositSuccessful();
 
-            String expectedResultSum = "Account Number : " + account + " , Balance : " + amountRandomSum + " , Currency : " + currency;
-            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultSum);
+            Integer amountRandomSumAndBalance = amountRandomSum + balance;
+            String amountRandomSumAndBalanceString = amountRandomSumAndBalance.toString();
+            accountPage.checkAccountNumberBalanceCurrencyText(account, amountRandomSumAndBalanceString, currency);
 
             accountPage.clickTransactionsButton();
 
@@ -79,7 +80,7 @@ public class DepositExistCustomerTest extends TestBase {
             transactionsPage.clickOnResetButton();
             transactionsPage.clickOnBackButton();
 
-            accountPage.checkAccountNumberBalanceCurrencyText(expectedResultDefault);
+            accountPage.checkAccountNumberBalanceCurrencyText(account, balance.toString(), currency);
         }
     }
 

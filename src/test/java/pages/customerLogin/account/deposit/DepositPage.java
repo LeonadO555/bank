@@ -16,6 +16,9 @@ public class DepositPage extends PageBase {
     @FindBy(xpath = "//*[@type='submit']")
     protected WebElement depositButtomConfirm;
 
+    @FindBy(xpath = "//strong[2]")
+    protected WebElement balance;
+
     @FindBy(xpath = "//input[@placeholder='amount']")
     protected WebElement amountField;
 
@@ -32,6 +35,11 @@ public class DepositPage extends PageBase {
 
     public void fillAmountField(String amount) {
         fillField(amountField, amount);
+    }
+
+    public String getBalance() {
+        String balanceText = balance.getText();
+        return balanceText;
     }
 
 

@@ -32,6 +32,9 @@ public class AccountPage extends PageBase {
     @FindBy(xpath = "//body//div[@class='ng-scope']//div[@class='ng-scope']//div[2]")
     protected WebElement accountNumberBalanceCurrencyCheck;
 
+    @FindBy(xpath = "//strong[2]")
+    protected WebElement balance;
+
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(logoutButton);
@@ -65,7 +68,14 @@ public class AccountPage extends PageBase {
         selectOption(accountId, accountSelect);
     }
 
-    public void checkAccountNumberBalanceCurrencyText(String expectedResult) {
+    public void checkAccountNumberBalanceCurrencyText(String account, String balance, String currency) {
+        String expectedResult = "Account Number : " + account + " , Balance : " + balance + " , Currency : " + currency;
+
         checkItemText(accountNumberBalanceCurrencyCheck, expectedResult, "Error");
+    }
+
+    public String getBalance() {
+        String balanceText = balance.getText();
+        return balanceText;
     }
 }
