@@ -38,6 +38,7 @@ public class Wait {
         }
     }
 
+
     public void forClickable(WebElement element) {
         try {
             setWait().until(ExpectedConditions.elementToBeClickable(element));
@@ -45,6 +46,4 @@ public class Wait {
             e.printStackTrace();
         }
     }
-
-
 }
