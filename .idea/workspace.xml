@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Used LinkedHashMap for data, added one more deposit (check sum of deposits)">
+    <list default="true" id="02334dca-4019-4dbd-bcdd-36845b807107" name="Changes" comment="Edited DepositExistCustomerTest: added one more rundom amount, changed method of check expected result, added balance.">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/enums/Accounts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/enums/Currency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/enums/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/account/DepositTestWithEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/AccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/deposit/DepositPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/customerLogin/account/deposit/DepositPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/account/DepositExistCustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/account/DepositExistCustomerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -81,7 +85,7 @@
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.DepositExistCustomerTest.DepositExistCustomerWithValidDataTest">
+  <component name="RunManager" selected="TestNG.DepositTestWithEnum.DepositExistCustomerWithValidDataTest">
     <configuration name="DepositExistCustomerTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bank.test" />
       <extension name="coverage">
@@ -117,6 +121,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DepositTestWithEnum.DepositExistCustomerWithValidDataTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="bank.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.account" />
+      <option name="MAIN_CLASS_NAME" value="tests.account.DepositTestWithEnum" />
+      <option name="METHOD_NAME" value="DepositExistCustomerWithValidDataTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterNewCustomerTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bank.test" />
       <extension name="coverage">
@@ -128,24 +150,6 @@
       <option name="PACKAGE_NAME" value="tests.manage_login" />
       <option name="MAIN_CLASS_NAME" value="tests.manage_login.RegisterNewCustomerTest" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="bank.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.manage_login.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.manage_login" />
-      <option name="MAIN_CLASS_NAME" value="tests.manage_login.RegisterNewCustomerTest" />
-      <option name="METHOD_NAME" value="registerNewCustomerOpenAccountAndCustomerLogin" />
-      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -172,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.DepositTestWithEnum.DepositExistCustomerWithValidDataTest" />
         <item itemvalue="TestNG.DepositExistCustomerTest.DepositExistCustomerWithValidDataTest" />
         <item itemvalue="TestNG.DepositExistCustomerTest" />
         <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewUserWithInvalidData" />
         <item itemvalue="TestNG.RegisterNewCustomerTest" />
-        <item itemvalue="TestNG.RegisterNewCustomerTest.registerNewCustomerOpenAccountAndCustomerLogin" />
       </list>
     </recent_temporary>
   </component>
@@ -322,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681999122810</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Edited DepositExistCustomerTest: added one more rundom amount, changed method of check expected result, added balance.">
+      <created>1682410603027</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682410603027</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +361,8 @@
     <MESSAGE value="gitignore - idea" />
     <MESSAGE value="merge into master" />
     <MESSAGE value="Used LinkedHashMap for data, added one more deposit (check sum of deposits)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Used LinkedHashMap for data, added one more deposit (check sum of deposits)" />
+    <MESSAGE value="Edited DepositExistCustomerTest: added one more rundom amount, changed method of check expected result, added balance." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited DepositExistCustomerTest: added one more rundom amount, changed method of check expected result, added balance." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

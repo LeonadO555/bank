@@ -21,6 +21,9 @@ public class HomePage extends PageBase {
     @FindBy(xpath = "//*[@ng-click='manager()']")
     protected WebElement bankManagerLoginButton;
 
+    @FindBy(xpath = "//*[@ng-click='byebye()']")
+    protected WebElement logoutButton;
+
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(homeButton);
@@ -39,6 +42,10 @@ public class HomePage extends PageBase {
 
     public void clickOnBankManagerLoginButton() {
         click(bankManagerLoginButton);
+    }
+
+    public void clickOnLogoutButton() {
+        click(logoutButton);
     }
 
 
